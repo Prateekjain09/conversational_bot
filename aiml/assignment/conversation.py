@@ -7,4 +7,9 @@ kernel.respond("load aiml b")
 
 # Press CTRL-C to break this loop
 while True:
-    print kernel.respond(raw_input("Enter your message >> "))
+    input_text = raw_input("Enter your message >> ")
+    response = kernel.respond(input_text)
+    print(response)
+
+
+   

@@ -1,0 +1,136 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+    	<pattern> HI</pattern>
+    	<template> 
+		Hi!Welcome to xyz flight booking company!How may I help you?Choose your query from the following options(or put your query in the command box):
+		1. book a new ticket 
+		2. know the status of booking
+		3. cancel the ticket 
+		</template> 
+		<pattern> * </pattern>
+		<template>
+	</category>
+	<category>
+      <pattern>Hi *</pattern>
+      <template>
+         <srai>HI</srai>
+      </template>
+    </category>
+   <category>
+      <pattern>Hey *</pattern>
+      <template>
+         <srai>HI</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>Hello *</pattern>
+      <template>
+         <srai>HI</srai>
+      </template>
+   </category>
+	
+	
+
+<!--for booking of new ticket(if option chosen 1)-->
+	<category>
+		<pattern> booking</pattern>
+	    <template> 
+		   enter your source station
+		</template>
+		<pattern> *</pattern>
+		<template>
+		  <think> <set name = "source"><star/></set></think>
+		</template>
+		<template> 
+		  Enter your destination
+		</template>
+		<pattern> *</pattern>
+		<template> 
+		  <think> <set name = "dest"><star/></set></think>enter date of journey (in dd/mm/yyyy format)
+		</template> 
+		<pattern> *</pattern>
+		<template> 
+		  <think> <set name = "date"><star/></set></think> Thanks for the information, let me see ,Here are the available options:   <!--shows all the available flights-->
+		</template> 
+	</category>
+    <category>
+      <pattern>* book *</pattern>
+      <template>
+         <srai>booking</srai>
+      </template>
+    </category>
+	<category>
+      <pattern>1</pattern>
+      <template>
+         <srai>booking</srai>
+      </template>
+    </category>
+
+
+<!--to get status of already booked ticket(if option chosen 2)-->
+	<category>
+	  <pattern> status of the ticket</pattern>
+	  <template> 
+	    Please enter your ticket number
+	  </template>
+	  <pattern> * </pattern>
+	  <template> 
+	    <think><set name="ticket id"><star/></set></think>the current status for your ticket number<get name="ticket id"></get> : is
+	  </template>
+	</category>
+	<category>
+      <pattern>* status *</pattern>
+      <template>
+         <srai>status of the ticket</srai>
+      </template>
+    </category>
+	<category>
+      <pattern>2</pattern>
+      <template>
+         <srai>status</srai>
+      </template>
+    </category>
+
+<!--to cancel a ticket(if option chosen 3)-->
+	<category>
+		<pattern> cancel </pattern>
+		<template> 
+		  Please enter your ticket number
+		</template>
+		<pattern> *</pattern>
+		<template>
+		  <think> <set name = "ticket id"><star/></set></think>the cancellation charges are:<!--show the cancellation charge-->Please confirm the cancellation(Yes/no)
+		</template>  
+		<pattern> * </pattern>
+		<template>
+		  <think><set name="response"><star/></set></think>
+		  </template>
+	</category>
+	<category>
+      <pattern>* cancel *</pattern>
+      <template>
+         <srai>cancel</srai>
+      </template>
+    </category>
+	<category>
+      <pattern>3</pattern>
+      <template>
+         <srai>cancel</srai>
+      </template>
+    </category>
+
+<!--end of the conversation-->
+	<category>
+	    <pattern> thank you</patter>
+	    <template>
+		  You're welcome! Feeling glad to help you
+		</template>
+	</category>
+	<category>
+	  <pattern> thanks *</pattern>
+	  <template>
+         <srai>thank you</srai>
+      </template>
+	</category>
+
+</aiml>
