@@ -22,8 +22,8 @@ The bot ( after asking the name ) would able to interact if your sentence contai
 
 ---
 Description of using Open subtitles datasets: https://github.com/PolyAI-LDN/conversational-datasets/tree/master/opensubtitles
-
 How to load word embeddings : https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html
+
 ---
 
 ## Team tasks:
